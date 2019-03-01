@@ -1,0 +1,11 @@
+@using BestRestaurants;
+
+<h1>@Model["restaurant"].GetName() @Model["type"].GetCuisineType()</h1>
+
+<p>Address: @Model["restaurant"].GetAddress()<p>
+
+<a href='/cuisines/@Model["type"].GetId()/restaurants/@Model["restaurant"].GetId()/edit'>Edit</a>
+<form action='/cuisines/@Model["type"].GetId()/restaurants/@Model["restaurant"].GetId()/delete' method="post">
+  <button type="submit">Delete</button>
+</form>
+<a href='/cuisines/@Model["type"].GetId()/'>Back to Restaurants</a>

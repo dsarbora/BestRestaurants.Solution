@@ -1,0 +1,20 @@
+@using BestRestaurants.Models;
+
+<h1>@Model["type"].GetCuisineType()</h1>
+@if(Model["restaurants"].Count == 0)
+{
+  <p>No restaurants with this type of cuisine</p>
+}
+@if(Model["restaurants"].Count != 0)
+{
+  @foreach(Restaurant restaurant in Model["restaurants"])
+  {
+    <p><a href="/cuisines/@Model["type"].GetId()/restaurants/@restaurant.GetId()">@restaurant.GetName()</a></p>
+  }
+}
+<p><a href="/cuisines/@Model["type"].GetId()/restaurants/new">Add restaurant</a><p>
+<p><a href="/cuisines/@Model["type"].GetId()/edit">Edit cuisine</a></p>
+<p><a href="/cuisines">Go back to Cuisine Index</a></p>
+<form action='/cuisines/@Model["type"].GetId()/delete' method="post">
+  <button type='submit'>Delete</button>
+</form>

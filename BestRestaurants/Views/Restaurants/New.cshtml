@@ -1,0 +1,13 @@
+@using BestRestaurants.Models
+
+<h1>Add New Restaurant</h1>
+<form action="/cuisines/@Model.GetId()/restaurants" method="post">
+  <input id="cuisine_id" name="cuisine_id" type="hidden" value="@Model.GetId()">
+  <label for="name">Restaurant Name</label>
+  <input id="name" name="name" type="text" required>
+  <label for="address">Address</label>
+  <input id="address" name="address" type="text" required>
+  <button type="submit">Submit</button>
+</form>
+
+<a href="/cuisines/@Model.GetId()">Back to List of Restaurants</a>
